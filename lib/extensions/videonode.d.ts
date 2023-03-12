@@ -1,4 +1,4 @@
-import { VideoOptions } from "@retap/types";
+import { VideoOptions } from "@chakra-editor/types";
 import { Node } from "@tiptap/react";
 declare module "@tiptap/core" {
     interface Commands<ReturnType> {

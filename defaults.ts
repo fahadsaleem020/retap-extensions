@@ -1,4 +1,4 @@
-import { Buttons } from "@retap/types";
+import { Buttons } from "@chakra-editor/types";
 import { FlexProps } from "@chakra-ui/react";
 
 export let defaultNodeMenuStyles: FlexProps = {

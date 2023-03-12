@@ -1,10 +1,12 @@
 import { defaultNodeMenuStyles } from "../defaults";
-import { RetapToolbar } from "@retap/toolbar";
-import { VideoOptions } from "@retap/types";
-import { useRetap } from "@retap/provider";
+import { Toolbar } from "@chakra-editor/toolbar";
+import { VideoOptions } from "@chakra-editor/types";
+import { useEditor } from "@chakra-editor/provider";
 import React, { useState } from "react";
-import { useNode } from "@retap/hooks";
+import { useNode } from "@chakra-editor/hooks";
 import { Box } from "@chakra-ui/react";
+import { Image } from "./imagenode"
+
 import {
   ReactNodeViewRenderer,
   mergeAttributes,
@@ -77,14 +79,13 @@ export const Video = Node.create<VideoOptions>({
     return {
       setVideo:
         ({ src, sources, title }) =>
-        ({ commands }) => {
-          const srcs = sources ? JSON.stringify(sources) : undefined;
-          return commands.insertContent(
-            `<video  sources=${srcs}  src=${src} title=${
-              title?.trim().length ? title : "video"
-            } />`
-          );
-        },
+          ({ commands }) => {
+            const srcs = sources ? JSON.stringify(sources) : undefined;
+            return commands.insertContent(
+              `<video  sources=${srcs}  src=${src} title=${title?.trim().length ? title : "video"
+              } />`
+            );
+          },
     };
   },
 
@@ -116,7 +117,7 @@ export const Video = Node.create<VideoOptions>({
 });
 
 const VideoNode = (props: NodeViewProps) => {
-  const { video } = useRetap();
+  const { video } = useEditor();
   useNode(video, props);
 
   const {
@@ -138,7 +139,7 @@ const VideoNode = (props: NodeViewProps) => {
           isMenu &&
           selected &&
           video?.menuProps?.buttons?.length && (
-            <RetapToolbar
+            <Toolbar
               buttonProps={video.menuProps.buttonProps}
               fallback={video.menuProps.fallback}
               buttons={video.menuProps.buttons}

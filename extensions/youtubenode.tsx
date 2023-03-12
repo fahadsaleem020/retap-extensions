@@ -1,10 +1,10 @@
 import YoutubeExtension, { YoutubeOptions } from "@tiptap/extension-youtube";
 import { defaultNodeMenuStyles } from "../defaults";
 import { Box, useToken } from "@chakra-ui/react";
-import { RetapToolbar } from "@retap/toolbar";
-import { useRetap } from "@retap/provider";
+import { Toolbar } from "@chakra-editor/toolbar";
+import { useEditor } from "@chakra-editor/provider";
 import React, { useState } from "react";
-import { useNode } from "@retap/hooks";
+import { useNode } from "@chakra-editor/hooks";
 import {
   ReactNodeViewRenderer,
   NodeViewWrapper,
@@ -49,7 +49,7 @@ export const Youtube = YoutubeExtension.extend<YoutubeOptions>({
 });
 
 const YoutubeNode = (props: NodeViewProps) => {
-  const { youtube } = useRetap();
+  const { youtube } = useEditor();
   useNode(youtube, props);
 
   const [blue500] = useToken("colors", ["blue.500"]);
@@ -62,9 +62,8 @@ const YoutubeNode = (props: NodeViewProps) => {
   } = props;
 
   const incomingSrc = attrs.src as string;
-  const splittedSrc = `https://www.youtube.com/embed/${
-    incomingSrc.split("?")[1].split("=")[1]
-  }?start=${attrs.start}`;
+  const splittedSrc = `https://www.youtube.com/embed/${incomingSrc.split("?")[1].split("=")[1]
+    }?start=${attrs.start}`;
 
   return (
     <NodeViewWrapper>
@@ -87,7 +86,7 @@ const YoutubeNode = (props: NodeViewProps) => {
           {...options.HTMLAttributes}
         />
         {isEditable && isMenu && youtube?.menuProps?.buttons?.length && (
-          <RetapToolbar
+          <Toolbar
             editor={props.editor as any}
             buttons={youtube.menuProps?.buttons}
             buttonProps={youtube.menuProps?.buttonProps}

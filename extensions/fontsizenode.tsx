@@ -39,11 +39,11 @@ export const FontSize = Extension.create<TextStyleOptions>({
     return {
       setFontSize:
         (fontSize) =>
-        ({ chain }) => {
-          return chain()
-            .setMark("textStyle", { fontSize: fontSize + "px" })
-            .run();
-        },
+          ({ chain }) => {
+            return chain()
+              .setMark("textStyle", { fontSize: fontSize + "px" })
+              .run();
+          },
     };
   },
 });

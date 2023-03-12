@@ -1,12 +1,12 @@
 {
-  "name": "@retap/extensions",
+  "name": "@chakra-editor/extensions",
   "version": "0.0.0-development",
   "type": "module",
   "license": "MIT",
   "author": "fahadsaleem",
-  "description": "retap editor extensions",
+  "description": "chakra editor extensions",
   "keywords": [
-    "@retap/extensions",
+    "@chakra-editor/extensions",
     "tiptap"
   ],
   "files": [
@@ -27,20 +27,20 @@
     "@tiptap/extension-youtube": "^2.0.0-beta.213"
   },
   "peerDependencies": {
+    "@chakra-editor/hooks": "^1.0.7",
+    "@chakra-editor/provider": "^1.0.7",
+    "@chakra-editor/toolbar": "^1.0.3",
+    "@chakra-editor/types": "^1.0.14",
     "@chakra-ui/react": "^2.4.9",
-    "@retap/hooks": "^1.0.3",
-    "@retap/provider": "^1.0.2",
-    "@retap/toolbar": "^1.0.2",
-    "@retap/types": "^1.0.10",
     "@tiptap/react": "^2.0.0-beta.213",
     "react": "^18.2.0"
   },
   "devDependencies": {
+    "@chakra-editor/hooks": "^1.0.7",
+    "@chakra-editor/provider": "^1.0.7",
+    "@chakra-editor/toolbar": "^1.0.3",
+    "@chakra-editor/types": "^1.0.14",
     "@chakra-ui/react": "^2.4.9",
-    "@retap/hooks": "^1.0.3",
-    "@retap/provider": "^1.0.2",
-    "@retap/toolbar": "^1.0.2",
-    "@retap/types": "^1.0.10",
     "@rollup/plugin-terser": "^0.4.0",
     "@tiptap/react": "^2.0.0-beta.213",
     "@types/react": "^18.0.26",
@@ -49,7 +49,6 @@
     "cz-conventional-changelog": "^3.3.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-icons": "^4.7.1",
     "rollup": "^3.12.0",
     "rollup-plugin-delete": "^2.0.0",
     "rollup-plugin-node-externals": "^5.1.2",
@@ -75,6 +74,6 @@
   "types": "lib/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "https://github.com/fahadsaleem020/retap-extensions.git"
+    "url": "https://github.com/fahadsaleem020/chakra-editor-extensions.git"
   }
 }

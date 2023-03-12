@@ -1,10 +1,10 @@
 import ImageExtension, { ImageOptions } from "@tiptap/extension-image";
 import { defaultNodeMenuStyles } from "../defaults";
 import { Box, Image as CImage } from "@chakra-ui/react";
-import { RetapToolbar } from "@retap/toolbar";
-import { useRetap } from "@retap/provider";
+import { Toolbar } from "@chakra-editor/toolbar";
+import { useEditor } from "@chakra-editor/provider";
 import React, { useState } from "react";
-import { useNode } from "@retap/hooks";
+import { useNode } from "@chakra-editor/hooks";
 import {
   ReactNodeViewRenderer,
   NodeViewWrapper,
@@ -54,7 +54,7 @@ export const Image = ImageExtension.extend<ImageOptions>({
 });
 
 const ImageNode = (props: NodeViewProps) => {
-  const { image } = useRetap();
+  const { image } = useEditor();
   useNode(image, props);
 
   const {
@@ -77,7 +77,7 @@ const ImageNode = (props: NodeViewProps) => {
           isMenu &&
           selected &&
           image?.menuProps?.buttons?.length && (
-            <RetapToolbar
+            <Toolbar
               buttonProps={image.menuProps.buttonProps}
               fallback={image.menuProps.fallback}
               buttons={image.menuProps.buttons}
