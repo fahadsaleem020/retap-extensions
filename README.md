@@ -1,1 +1,1 @@
-# retap editor extensions
+# chakra editor extensions
