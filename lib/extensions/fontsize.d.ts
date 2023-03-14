@@ -7,4 +7,4 @@ declare module "@tiptap/core" {
         };
     }
 }
-export declare const FontSize: Extension<TextStyleOptions, any>;
+export declare const FontSizeExtension: Extension<TextStyleOptions, any>;

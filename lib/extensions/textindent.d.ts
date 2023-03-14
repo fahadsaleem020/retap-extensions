@@ -8,4 +8,4 @@ declare module "@tiptap/core" {
         };
     }
 }
-export declare const TextIndent: Extension<TextStyleOptions, any>;
+export declare const TextIndentExtension: Extension<TextStyleOptions, any>;

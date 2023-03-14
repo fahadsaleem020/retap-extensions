@@ -1,6 +1,6 @@
-export { CodeBlockLowlight } from "./extensions/codeblock";
-export { TextIndent } from "./extensions/textindentnode";
-export { FontSize } from "./extensions/fontsizenode";
-export { Youtube } from "./extensions/youtubenode";
-export { Video } from "./extensions/videonode";
-export { Image } from "./extensions/imagenode";
+export { CodeBlockLowlightExtension } from "./extensions/codeblock";
+export { TextIndentExtension } from "./extensions/textindent";
+export { FontSizeExtension } from "./extensions/fontsize";
+export { YoutubeExtension } from "./extensions/youtube";
+export { VideoExtension } from "./extensions/video";
+export { ImageExtension } from "./extensions/image";

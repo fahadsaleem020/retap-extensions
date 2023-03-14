@@ -1,11 +1,11 @@
 import { defaultNodeMenuStyles } from "../defaults";
 import { Toolbar } from "@chakra-editor/toolbar";
 import { VideoOptions } from "@chakra-editor/types";
-import { useEditor } from "@chakra-editor/provider";
+import { useChakraEditor } from "@chakra-editor/provider";
 import React, { useState } from "react";
 import { useNode } from "@chakra-editor/hooks";
 import { Box } from "@chakra-ui/react";
-import { Image } from "./imagenode"
+import { ImageExtension } from "./image"
 
 import {
   ReactNodeViewRenderer,
@@ -27,7 +27,7 @@ declare module "@tiptap/core" {
   }
 }
 
-export const Video = Node.create<VideoOptions>({
+export const VideoExtension = Node.create<VideoOptions>({
   addOptions() {
     return {
       HTMLAttributes: {
@@ -117,7 +117,7 @@ export const Video = Node.create<VideoOptions>({
 });
 
 const VideoNode = (props: NodeViewProps) => {
-  const { video } = useEditor();
+  const { video } = useChakraEditor();
   useNode(video, props);
 
   const {

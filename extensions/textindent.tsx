@@ -10,7 +10,7 @@ declare module "@tiptap/core" {
   }
 }
 
-export const TextIndent = Extension.create<TextStyleOptions>({
+export const TextIndentExtension = Extension.create<TextStyleOptions>({
   name: "textIndent",
 
   addGlobalAttributes() {
@@ -42,35 +42,35 @@ export const TextIndent = Extension.create<TextStyleOptions>({
     return {
       increaseIndent:
         (value, limit) =>
-        ({ chain }) => {
-          let previous: number = parseInt(
-            this.editor.getAttributes("textStyle").marginLeft?.split("px")[0] ??
+          ({ chain }) => {
+            let previous: number = parseInt(
+              this.editor.getAttributes("textStyle").marginLeft?.split("px")[0] ??
               "0"
-          );
+            );
 
-          if (previous === limit) return false;
-          const combined = previous + (value ?? 0);
-          return chain()
-            .setMark("textStyle", { marginLeft: combined + "px" })
-            .run();
-        },
+            if (previous === limit) return false;
+            const combined = previous + (value ?? 0);
+            return chain()
+              .setMark("textStyle", { marginLeft: combined + "px" })
+              .run();
+          },
       decreaseIndent:
         (value) =>
-        ({ chain }) => {
-          let previous: number = parseInt(
-            this.editor.getAttributes("textStyle").marginLeft?.split("px")[0] ??
+          ({ chain }) => {
+            let previous: number = parseInt(
+              this.editor.getAttributes("textStyle").marginLeft?.split("px")[0] ??
               "0"
-          );
+            );
 
-          const combined = previous - value!;
+            const combined = previous - value!;
 
-          if (!previous || !combined)
-            return chain().unsetMark("textStyle").run();
-          return chain()
-            .setMark("textStyle", { marginLeft: combined + "px" })
-            .removeEmptyTextStyle()
-            .run();
-        },
+            if (!previous || !combined)
+              return chain().unsetMark("textStyle").run();
+            return chain()
+              .setMark("textStyle", { marginLeft: combined + "px" })
+              .removeEmptyTextStyle()
+              .run();
+          },
     };
   },
 });

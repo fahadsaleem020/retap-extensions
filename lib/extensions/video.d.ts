@@ -11,4 +11,4 @@ declare module "@tiptap/core" {
         };
     }
 }
-export declare const Video: Node<VideoOptions, any>;
+export declare const VideoExtension: Node<VideoOptions, any>;

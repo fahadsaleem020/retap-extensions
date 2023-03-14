@@ -1,8 +1,8 @@
-import YoutubeExtension, { YoutubeOptions } from "@tiptap/extension-youtube";
+import Youtube, { YoutubeOptions } from "@tiptap/extension-youtube";
 import { defaultNodeMenuStyles } from "../defaults";
 import { Box, useToken } from "@chakra-ui/react";
 import { Toolbar } from "@chakra-editor/toolbar";
-import { useEditor } from "@chakra-editor/provider";
+import { useChakraEditor } from "@chakra-editor/provider";
 import React, { useState } from "react";
 import { useNode } from "@chakra-editor/hooks";
 import {
@@ -11,7 +11,7 @@ import {
   NodeViewProps,
 } from "@tiptap/react";
 
-export const Youtube = YoutubeExtension.extend<YoutubeOptions>({
+export const YoutubeExtension = Youtube.extend<YoutubeOptions>({
   addAttributes() {
     return {
       ...this.parent?.(),
@@ -49,7 +49,7 @@ export const Youtube = YoutubeExtension.extend<YoutubeOptions>({
 });
 
 const YoutubeNode = (props: NodeViewProps) => {
-  const { youtube } = useEditor();
+  const { youtube } = useChakraEditor();
   useNode(youtube, props);
 
   const [blue500] = useToken("colors", ["blue.500"]);

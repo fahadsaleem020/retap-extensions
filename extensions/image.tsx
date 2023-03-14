@@ -1,8 +1,8 @@
-import ImageExtension, { ImageOptions } from "@tiptap/extension-image";
+import Image, { ImageOptions } from "@tiptap/extension-image";
 import { defaultNodeMenuStyles } from "../defaults";
 import { Box, Image as CImage } from "@chakra-ui/react";
 import { Toolbar } from "@chakra-editor/toolbar";
-import { useEditor } from "@chakra-editor/provider";
+import { useChakraEditor } from "@chakra-editor/provider";
 import React, { useState } from "react";
 import { useNode } from "@chakra-editor/hooks";
 import {
@@ -11,7 +11,7 @@ import {
   NodeViewProps,
 } from "@tiptap/react";
 
-export const Image = ImageExtension.extend<ImageOptions>({
+export const ImageExtension = Image.extend<ImageOptions>({
   draggable: true,
   inline: false,
 
@@ -54,7 +54,7 @@ export const Image = ImageExtension.extend<ImageOptions>({
 });
 
 const ImageNode = (props: NodeViewProps) => {
-  const { image } = useEditor();
+  const { image } = useChakraEditor();
   useNode(image, props);
 
   const {
